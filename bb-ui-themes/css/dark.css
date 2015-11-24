@@ -1,0 +1,124 @@
+/*
+Dark Theme for Beaver Builder UI
+By Brent Jett
+*/
+body .fl-builder-panel,
+body .fl-builder-bar-content,
+body .fl-lightbox,
+body .fl-lightbox-header {
+    background-color:#333;
+    color:white;
+    border-color:black;
+}
+body .fl-builder-panel {
+    border-left: 1px solid #000;
+}
+body .fl-builder-bar-content {
+    border-bottom: 1px solid #000;
+}
+body .fl-builder-bar-title {
+    color:#E0E0E0;
+}
+body .fl-builder-bar .fl-builder-button,
+body .fl-lightbox .fl-builder-button {
+    border: 1px solid #000000;
+    color: #FBB040;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0),0 1px 0 rgba(0,0,0,.08);
+    background: #2D2D2D;
+}
+body .fl-builder-button.fl-builder-button-primary {
+    background: #FBB040;
+    border-color: black;
+    color: #333 !important;
+}
+body .fl-builder-blocks-section .fl-builder-blocks-section-title {
+    color:#A7A7A7;
+    border-bottom: 1px solid #000000;
+}
+body .fl-builder-blocks-section-content .fl-builder-block {
+    border-bottom: 1px solid #353535;
+    color: #B7B7B7;
+}
+body .fl-builder-blocks-section .fl-builder-blocks-section-title:hover,
+body .fl-builder-blocks-section .fl-builder-blocks-section-title:hover {
+    background-color:rgba(255, 255, 255, .05);
+}
+body .fl-builder-blocks-separator {
+    background:#272727;
+}
+
+body .fl-builder-blocks-section-content {
+    background:#464646;
+}
+body .fl-builder-blocks-section-content .fl-builder-block {
+    transition-property: background;
+    transition-duration: .35s;
+}
+body .fl-builder-blocks-section-content .fl-builder-block:hover {
+    background:#FBB040;
+    color: #333 !important;
+}
+body .fl-builder-panel-actions {
+    background: #272727;
+    border-bottom: 1px solid #000000;
+}
+
+body .fl-builder-blocks-section .fl-builder-blocks-section-title:hover,
+body .fl-builder-blocks-section .fl-builder-blocks-section-title:hover i {
+    background:transparent;
+}
+
+/* Small Modal */
+body .fl-lightbox *:not(i) {
+    color:#A7A7A7 !important;
+}
+body .fl-builder-actions-title {
+    color:#aaa !important;
+}
+
+body .fl-lightbox-header h1 {
+    color:#A7A7A7 !important;
+}
+
+body .fl-builder-settings-fields h3.fl-builder-settings-title,
+body .fl-lightbox .fl-builder-settings-tab-description {
+    color:#A7A7A7;
+    border-color:black;
+}
+
+body .fl-builder-settings-tabs {
+    background: #272727;
+    border-bottom: 1px solid #000000;
+}
+body .fl-builder-settings-tabs a:hover {
+    color:#dddddd;
+}
+body .fl-builder-settings-tabs a.fl-active {
+    background-color:#333;
+    color:#A7A7A7;
+    border-color:black;
+}
+body .fl-form-table th {
+    background: transparent !important;
+}
+body .fl-builder-settings-fields label {
+    color:#A7A7A7;
+}
+body .fl-lightbox-footer {
+    border-color:black;
+}
+
+body .fl-user-templates,
+body .fl-user-template {
+    border-color:black;
+}
+body .fl-user-template:hover {
+    background:#FBB040;
+}
+body .fl-user-template:hover *,
+body .fl-user-template:hover a {
+    color: #333 !important;
+}
+body .fl-template-image:hover {
+    border-color: #FBB040;
+}

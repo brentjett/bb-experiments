@@ -1,0 +1,12 @@
+/*
+Light Theme for Beaver Builder UI
+By Brent Jett
+*/
+body .fl-builder-panel,
+body .fl-builder-bar-content,
+body .fl-lightbox,
+body .fl-lightbox-header {
+    background-color:#fff;
+    color:#444;
+    border-color:#ddd;
+}
