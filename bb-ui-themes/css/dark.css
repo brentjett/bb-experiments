@@ -122,3 +122,26 @@ body .fl-user-template:hover a {
 body .fl-template-image:hover {
     border-color: #FBB040;
 }
+
+@supports (-webkit-backdrop-filter: blur(10px)) {
+
+    body .fl-builder-panel,
+    body .fl-builder-bar-content,
+    body .fl-lightbox {
+        background-color: rgba(51, 51, 51, 0.9);
+        -webkit-backdrop-filter: blur(30px) saturate(60%);
+    }
+    body .fl-lightbox {
+        box-shadow: rgba(0, 0, 0, .6) 0 4px 30px;
+        -moz-box-shadow: rgba(0, 0, 0, .6) 0 4px 30px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.6) 0 4px 30px;
+    }
+    body .fl-builder-blocks-section-content {
+        background: rgba(0, 0, 0, 0.28);
+    }
+    body .fl-lightbox-mask {
+        -webkit-backdrop-filter: blur(20px) saturate(80%);
+        background: rgba(178, 168, 176, 0.2);
+        opacity: 1;
+    }
+}
