@@ -13,7 +13,11 @@ class BB_UI_Themes {
             $themes = self::get_themes();
             $settings = FLBuilderModel::get_global_settings();
             $ui_theme = $settings->bb_ui_theme;
-            if ($ui_theme != '') {
+            if ($ui_theme == 'custom') {
+                // setup custom style block
+                add_action('wp_head', array($this, 'print_custom_css'));
+
+            } elseif ($ui_theme != '') {
                 $theme = $themes[$ui_theme];
                 wp_enqueue_style('bb-ui-theme', $theme['url']);
             }
@@ -21,6 +25,7 @@ class BB_UI_Themes {
 
             $bb_ui = array();
             $bb_ui['themes'] = $themes;
+            $bb_ui['fields'] = self::get_color_fields();
             wp_localize_script('bb-ui-theme', 'BB_UI', $bb_ui);
         }
     }
@@ -90,26 +95,52 @@ class BB_UI_Themes {
                 'label' => __('Panel Background', 'bb-experiments'),
                 'type' => 'color',
                 'show_reset'    => true,
-                'preview' => array(
-                    'type' => 'css',
-                    'property' => 'background',
-                    'selector' => array('.fl-builder-panel')
-                    /*'.fl-builder-panel, .fl-builder-bar-content, .fl-lightbox, fl-lightbox-header'*/
+                'properties' => array('background'),
+                'selectors' => array(
+                    'body .fl-builder-panel',
+                    'body .fl-builder-bar-content',
+                    'body .fl-lightbox',
+                    'body .fl-lightbox-header',
+                    'body .fl-form-table th',
+                    'body .fl-builder-settings-tabs a.fl-active'
                 )
             ),
             'panel_color' => array(
                 'type' => 'color',
                 'label' => __('Panel Text Color', 'bb-experiments'),
                 'show_reset'    => true,
-                'preview' => array(
-                    'type' => 'css',
-                    'property' => 'color',
-                    'selector' => array('.fl-builder-panel')
-                    /*'.fl-builder-panel, .fl-builder-bar-content, .fl-lightbox, fl-lightbox-header'*/
+                'properties' => array('color'),
+                'selectors' => array(
+                    'body .fl-lightbox *:not(i)'
                 )
             )
         );
         return $selectors;
+    }
+
+    function print_custom_css() {
+        $fields = self::get_color_fields();
+        $settings = FLBuilderModel::get_global_settings();
+        print "<style id='bb-ui-theme-custom'>\n";
+        foreach($fields as $name => $field) {
+            $color = '#' . $settings->{$name};
+            $properties = $field['properties'];
+            $selectors = $field['selectors'];
+            foreach($selectors as $selector) {
+                print $selector . "{\n";
+                foreach ($properties as $property) {
+                    print $property . " : " . $color;
+                }
+                print "}\n";
+            }
+        }
+        ?>
+        body .fl-builder-blocks-section .fl-builder-blocks-section-title:hover,
+        body .fl-builder-blocks-section .fl-builder-blocks-section-title:hover i {
+            background:transparent;
+        }
+        <?php
+        print "</style>\n";
     }
 
 }

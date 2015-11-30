@@ -7,7 +7,6 @@ body .fl-builder-bar-content,
 body .fl-lightbox,
 body .fl-lightbox-header {
     background-color:#333;
-    color:white;
     border-color:black;
 }
 body .fl-builder-panel {
@@ -121,6 +120,60 @@ body .fl-user-template:hover a {
 }
 body .fl-template-image:hover {
     border-color: #FBB040;
+}
+
+
+
+body .fl-builder-settings-fields textarea:focus,
+body .fl-builder-settings-fields input[type=text]:focus,
+body .fl-builder-settings-fields input[type=password]:focus,
+body .fl-builder-settings-fields input[type=file]:focus,
+body .fl-builder-settings-fields input[type=email]:focus,
+body .fl-builder-settings-fields input[type=number]:focus,
+body .fl-builder-settings-fields input[type=search]:focus,
+body .fl-builder-settings-fields input[type=tel]:focus,
+body .fl-builder-settings-fields input[type=url]:focus,
+body .fl-builder-settings-fields select:focus {
+    background-color:white !important;
+}
+
+
+/* Metadata panel */
+body .fl-metadata-panel,
+body .fl-metadata-panel .fl-metadata-tabs a.fl-active {
+    background-color:#333;
+    border-color:black;
+    color:#aaa;
+}
+body .fl-metadata-panel .fl-metadata-tabs {
+    background: #272727;
+    border-bottom: 1px solid #000000;
+}
+body .fl-metadata-panel-content .field .input-wrap,
+body .fl-post-link-block,
+body .fl-post-link-block:hover {
+    border-color:black;
+    color:#aaa;
+}
+body .fl-metadata-panel-content .field label {
+    background:black;
+    color:#aaa;
+}
+body .fl-metadata-panel-content .fl-post-list-section-content {
+    background:#464646;
+    border-color:#353535;
+}
+body .fl-metadata-panel-content .fl-post-list-section-content .fl-post-link-block {
+    transition-property: background, color;
+    transition-duration: .35s;
+    border-color:#353535;
+}
+body .fl-metadata-panel-content .fl-post-list-section-content .fl-post-link-block:hover {
+    background:#FBB040;
+    color: #333 !important;
+}
+body .fl-metadata-panel-content input:focus {
+    color:#aaa;
 }
 
 @supports (-webkit-backdrop-filter: blur(10px)) {

@@ -12,5 +12,5 @@ define( 'BB_EXPERIMENTS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'BB_EXPERIMENTS_URL', plugins_url( '/', __FILE__ ) );
 
 require_once BB_EXPERIMENTS_DIR . '/bb-ui-themes/bb-ui-themes.php';
-
+require_once BB_EXPERIMENTS_DIR . '/bb-metadata/bb-metadata.php';
 ?>

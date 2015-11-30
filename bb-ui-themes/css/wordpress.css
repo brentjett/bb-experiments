@@ -13,7 +13,6 @@ body .fl-builder-bar-content,
 body .fl-lightbox,
 body .fl-lightbox-header {
     background-color:#23282d;
-    color:white;
     border-color:black;
 }
 
@@ -155,4 +154,18 @@ body .fl-user-template:hover a {
 /* Template thumbnail outline */
 body .fl-template-image:hover {
     border-color: #0073aa;
+}
+
+
+body .fl-builder-settings-fields textarea:focus,
+body .fl-builder-settings-fields input[type=text]:focus,
+body .fl-builder-settings-fields input[type=password]:focus,
+body .fl-builder-settings-fields input[type=file]:focus,
+body .fl-builder-settings-fields input[type=email]:focus,
+body .fl-builder-settings-fields input[type=number]:focus,
+body .fl-builder-settings-fields input[type=search]:focus,
+body .fl-builder-settings-fields input[type=tel]:focus,
+body .fl-builder-settings-fields input[type=url]:focus,
+body .fl-builder-settings-fields select:focus {
+    background-color:white !important;
 }

@@ -1,8 +1,5 @@
 (function($){
 
-	//var form = $('.fl-builder-global-settings');
-    //var theme = form.find('select[name=bb_ui_theme]');
-
     $('body').on('change', '.fl-builder-global-settings select[name=bb_ui_theme]', function() {
         var themes = BB_UI.themes;
         var handle = $(this).val();
@@ -14,35 +11,54 @@
         if (handle == 'custom') {
             // handle custom colors
             stylesheet.prop('disabled', true);
-            var form = $('.fl-builder-global-settings');
-            var panel_color = form.find('input[name=panel_color]');
-            console.log('handle custom colors');
+            $('#bb-ui-theme-custom').prop('media', 'screen');
         } else if (theme != undefined) {
+            // Set stylesheet url
             var css_url = theme.url;
-            console.log(stylesheet);
             stylesheet.attr('href', css_url);
             stylesheet.prop('disabled', false);
-            console.log('set theme to', handle, css_url);
+            $('#bb-ui-theme-custom').prop('media', 'none');
+            reset_custom_ui_styles();
         } else {
-            console.log('reset to default styling');
+            // Reset to default styling
+            $('#bb-ui-theme-custom').prop('media', 'none');
+            reset_custom_ui_styles();
             stylesheet.prop('disabled', true);
         }
     });
 
-    $('body').on('mousedown', '.fl-builder-global-settings input[name=panel_background]', function() {
-        $('.fl-lightbox-mask').css('opacity', 0);
-        /*
-        var form = $('.fl-builder-global-settings');
-        var theme_selector = form.find('select[name=bb_ui_theme]').val();
-        if (theme_selector == 'custom') {
-            $('.fl-lightbox-mask').css('opacity', 0);
+    $('body').on('change', '.fl-builder-global-settings input.fl-color-picker-value', function() {
 
+        var input = $(this);
+        var name = input.attr('name');
+        var color = input.val();
+        var selectors = BB_UI.fields[name].selectors;
+        var properties = BB_UI.fields[name].properties;
+        console.log(selectors, properties);
+
+        if (color != "") {
+
+            $.each(properties, function(i, property)  {
+                console.log("set", property, selectors);
+                $.each(selectors, function(i, selector) {
+                    $(selector).css(property, '#' + color).addClass('custom-ui-theme-' + property);
+                });
+            });
+
+        } else {
+            // clear the color
+            console.log('clear css properties');
+            $('.custom-ui-theme-' + property).css(property, "");
         }
-        */
-    });
-    $('body').on('mouseup', '.fl-builder-global-settings input[name=panel_background]', function() {
-        $('.fl-lightbox-mask').css('opacity', 1);
+
     });
 
+    function reset_custom_ui_styles() {
+        console.log('reset custom styles');
+        $('custom-ui-theme-color').css('color', '');
+        $('custom-ui-theme-background').css('background', '');
+        $('custom-ui-theme-background-color').css('background-color', '');
+        $('custom-ui-theme-border-color').css('border-color', '');
+    }
 
 })(jQuery);
