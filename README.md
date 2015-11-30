@@ -21,3 +21,7 @@ add_filter('bb_experiments_get_ui_themes', 'demo_add_color_themes');
 
 Upcoming Feature:
 * Select "Custom" and create your own color settings for beaver builder's UI.
+
+
+## Experiment 2: Fast Admin Panel
+This feature adds a "Details" button to the Beaver Builder bar that toggles on a panel where you can change the title and slug of the current post, as well as navigate to other pages (NOT YET, oops!) directly into builder mode.
