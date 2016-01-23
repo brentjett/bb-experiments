@@ -1,16 +1,41 @@
 <?php
 /*
 Plugin Name: Beaver Builder Experiments
-Version: 0.1
+Version: 0.2
 Description: A set of scratchwork and experiments for extending Beaver Builder.
 Author: Brent Jett
 Author URI: http://brentjett.design
 */
 
-defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 define( 'BB_EXPERIMENTS_DIR', plugin_dir_path( __FILE__ ) );
-define( 'BB_EXPERIMENTS_URL', plugins_url( '/', __FILE__ ) );
 
-require_once BB_EXPERIMENTS_DIR . '/bb-ui-themes/bb-ui-themes.php';
-require_once BB_EXPERIMENTS_DIR . '/bb-metadata/bb-metadata.php';
+$experiments = array(
+    array(
+        'key' => 'bb-minimap',
+        'label' => 'Beaver Builder Minimap',
+        'include' => BB_EXPERIMENTS_DIR . '/bb-minimap/bb-minimap.php'
+    ),
+    array(
+        'key' => 'bb-store-kit',
+        'label' => 'Beaver Builder Store Kit',
+        'include' => BB_EXPERIMENTS_DIR . '/bb-store-kit/bb-store-kit.php'
+    ),
+    array(
+        'key' => 'bb-tutorials',
+        'label' => 'Beaver Builder Tutorials Plugin Base',
+        'include' => BB_EXPERIMENTS_DIR . '/bb-tutorials/bb-tutorials.php'
+    ),
+    array(
+        'key' => 'bb-ui-themes',
+        'label' => 'Beaver Builder UI Themes',
+        'include' => BB_EXPERIMENTS_DIR . '/bb-ui-themes/bb-ui-themes.php'
+    )
+);
+
+// Optionally Include Projects
+if (!empty($experiments)) {
+    foreach($experiments as $proj) {
+        require_once $proj['include'];
+    }
+}
 ?>
