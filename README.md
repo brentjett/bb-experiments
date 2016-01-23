@@ -23,7 +23,10 @@ Upcoming Feature:
 * Select "Custom" and create your own color settings for beaver builder's UI.
 
 ## Experiment 2: Minimap
+This is a concept for a small control to let you see your layout at a glance, navigate to various rows and rearrange them. Reorder coming soon.
 
 ## Experiment 3: Tutorials Base Plugin
+This is a base plugin to create tutorial pages. It defines a custom post type and allows you to create a set of tutorial posts on activation.
 
 ## Experiment 4: Store Kit
+This is a stub for some modules to allow someone to create a template store site.
